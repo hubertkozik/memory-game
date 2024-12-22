@@ -122,7 +122,7 @@
                     this.time = useStopwatch();
                 }
                 
-                const clickedCard = cards.find(card => card.range.x1 / window.devicePixelRatio <= mouseX && card.range.x2 / window.devicePixelRatio >= mouseX && card.range.y1 / window.devicePixelRatio <= mouseY && card.range.y2 / window.devicePixelRatio >= mouseY);
+                const clickedCard = cards.find(card => card.range.x1 <= mouseX && card.range.x2 >= mouseX && card.range.y1 <= mouseY && card.range.y2 >= mouseY);
 
                 if (!clickedCard || this.activeCards.indexOf(clickedCard) !== -1 || clickedCard.active) {
                     return;
@@ -181,7 +181,7 @@
                     return;
                 }
 
-                const hoveredCard = cards.find(card => card.range.x1 / window.devicePixelRatio <= mouseX && card.range.x2 / window.devicePixelRatio >= mouseX && card.range.y1 / window.devicePixelRatio <= mouseY && card.range.y2 / window.devicePixelRatio >= mouseY);
+                const hoveredCard = cards.find(card => card.range.x1 <= mouseX && card.range.x2 >= mouseX && card.range.y1 <= mouseY && card.range.y2 >= mouseY);
 
                 if (hoveredCard?.isAnimating) {
                     return;

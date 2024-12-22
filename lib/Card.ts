@@ -87,10 +87,10 @@ export default class Card {
 
     setRange() {
         this.range = {
-            x1: this.x,
-            x2: this.x + this.width,
-            y1: this.y,
-            y2: this.y + this.height
+            x1: this.x / window.devicePixelRatio,
+            x2: (this.x + this.width) / window.devicePixelRatio,
+            y1: this.y / window.devicePixelRatio,
+            y2: (this.y + this.height) / window.devicePixelRatio
         };
     }
 
@@ -224,6 +224,7 @@ export default class Card {
             return { x: cx + x, y: cy + y };
         });
 
+        ctx.restore();
         // Fill the rectangle with a color
         ctx.save();
         drawRoundedRectPath(perspectiveCorners, radius);
