@@ -5,6 +5,8 @@
     import Card from '~/lib/Card';
     import Canvas from '~/lib/Canvas';
 
+    const config = useRuntimeConfig();
+
     function pad(num, size) {
         num = num.toString();
         while (num.length < size) num = "0" + num;
@@ -52,9 +54,9 @@
         },
 
         mounted() {
-            this.good = new Audio(process.env.BASE_URL || '' + '/sounds/good.mp3');
-            this.wrong = new Audio(process.env.BASE_URL || '' + '/sounds/wrong.mp3');
-            this.victory = new Audio(process.env.BASE_URL || '' + '/sounds/victory.mp3');
+            this.good = new Audio((config.public.baseUrl || '') + '/sounds/good.mp3');
+            this.wrong = new Audio((config.public.baseUrl || '') + '/sounds/wrong.mp3');
+            this.victory = new Audio((config.public.baseUrl || '') + '/sounds/victory.mp3');
 
             window.addEventListener("resize", this.updateCanvas);
 

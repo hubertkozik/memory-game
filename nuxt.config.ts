@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     app: {
-        baseURL: process.env.BASE_URL || '',
+        baseURL: process.env.NUXT_PUBLIC_BASE_URL || '',
         head: {
             charset: 'utf-8',
             viewport: 'width=device-width, initial-scale=1',
@@ -14,7 +14,7 @@ export default defineNuxtConfig({
                 { name: 'robots', content: 'index, follow' },
                 { name: 'language', content: 'Polish' },
             ],
-            link: [{ rel: 'icon', type: 'image/ico', href: `${process.env.BASE_URL || ''}/favicon.ico` }]
+            link: [{ rel: 'icon', type: 'image/ico', href: `${process.env.NUXT_PUBLIC_BASE_URL || ''}/favicon.ico` }]
         }
     },
     compatibilityDate: '2024-11-01',
@@ -24,5 +24,10 @@ export default defineNuxtConfig({
     ],
     modules: [
         '@nuxt/fonts',
-    ]
+    ],
+    runtimeConfig: {
+        public: {
+            baseUrl: ''
+        }
+    },
 })
