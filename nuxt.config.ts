@@ -25,6 +25,7 @@ export default defineNuxtConfig({
     modules: [
         '@nuxt/fonts',
     ],
+    ssr: process.env.GH_ACTIONS ? false : true,
     runtimeConfig: {
         public: {
             baseUrl: ''

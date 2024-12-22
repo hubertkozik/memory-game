@@ -18,6 +18,7 @@ jobs:
         run: |
           touch .env
           echo NUXT_PUBLIC_BASE_URL=/memory-game/ >> .env
+          echo GH_ACTIONS=true >> .env
           cat .env
       # Pick your own package manager and build script
       - run: npm install
