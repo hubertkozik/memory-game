@@ -101,6 +101,9 @@
 
         unmounted() {
             window.removeEventListener("resize", this.updateCanvas);
+            this.victory.pause();
+            this.good.pause();
+            this.wrong.pause();
         },
 
         methods: {
