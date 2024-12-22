@@ -52,9 +52,9 @@
         },
 
         mounted() {
-            this.good = new Audio('/sounds/good.mp3');
-            this.wrong = new Audio('/sounds/wrong.mp3');
-            this.victory = new Audio('/sounds/victory.mp3');
+            this.good = new Audio(process.env.BASE_URL || '' + '/sounds/good.mp3');
+            this.wrong = new Audio(process.env.BASE_URL || '' + '/sounds/wrong.mp3');
+            this.victory = new Audio(process.env.BASE_URL || '' + '/sounds/victory.mp3');
 
             window.addEventListener("resize", this.updateCanvas);
 

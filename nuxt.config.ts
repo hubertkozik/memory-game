@@ -13,7 +13,8 @@ export default defineNuxtConfig({
                 { name: 'author', content: 'Hubert Kozik' },
                 { name: 'robots', content: 'index, follow' },
                 { name: 'language', content: 'Polish' },
-            ]
+            ],
+            link: [{ rel: 'icon', type: 'image/ico', href: `${process.env.BASE_URL || ''}/favicon.ico` }]
         }
     },
     compatibilityDate: '2024-11-01',

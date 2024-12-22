@@ -170,7 +170,7 @@ export default class Card {
         const card = this,
             img = new Image();
 
-        img.src = '/images/' + this.imageData.image;
+        img.src = process.env.BASE_URL || '' + '/images/' + this.imageData.image;
 
         const boxWidth = this.canvas.width / this.layoutOptions.width,
             boxHeight = this.canvas.height / this.layoutOptions.height,
