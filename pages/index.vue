@@ -1,7 +1,7 @@
 <script>
     export default {
         data() {
-          return {
+            return {
                 levels: [{
                     width: 4,
                     height: 3,
@@ -39,10 +39,13 @@
 <template>
     <div class='container'>
         <div class='levels'>
-            <h3>Wybierz poziom trudności gry</h3>
+            <h2>Wybierz poziom trudności gry</h2>
             <LevelBox v-for='level in levels' v-bind:level='level' />
         </div>
     </div>
+    <footer>
+        Realizacja - Hubert Kozik
+    </footer>
 </template>
 
 <style>
@@ -52,5 +55,17 @@
         place-items: center;
         text-align: center;
     }
-</style>
 
+    div.levels {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        place-items: center;
+        gap: 1.5rem;
+    }
+
+    footer {
+        text-align: center;
+        padding: 1rem 0;
+    }
+</style>

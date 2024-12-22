@@ -60,9 +60,9 @@
 
             const canvas = this.provider.canvas = new Canvas(this.$refs['game-canvas']);
 
-            const { images } = this;
-            const layoutWidth = this.layoutOptions.width = parseInt(this.width);
-            const layoutHeight = this.layoutOptions.height = parseInt(this.height);
+            const { images } = this,
+                layoutWidth = this.layoutOptions.width = parseInt(this.width),
+                layoutHeight = this.layoutOptions.height = parseInt(this.height);
 
             let nums = new Set();
             while(nums.size !== (layoutWidth * layoutHeight) / 2) {
@@ -222,6 +222,8 @@
 
     .game-container {
         height: 100%;
+        display: grid;
+        place-items: center;
         overflow-y: hidden;
     }
 

@@ -14,8 +14,9 @@ export default class Canvas {
         const canvas = this.canvas;
 
         if (canvas?.parentElement) {
-            canvas.width = this.width = canvas.parentElement.clientWidth;
-            canvas.height = this.height = canvas.parentElement.clientHeight;
+            const safeOffset = 5;
+            canvas.width = this.width = canvas.parentElement.clientWidth - safeOffset;
+            canvas.height = this.height = canvas.parentElement.clientHeight - safeOffset;
         }
     }
 }

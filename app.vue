@@ -10,7 +10,7 @@
 
 <template>
     <NuxtLayout>
-      <NuxtPage/>
+        <NuxtPage />
     </NuxtLayout>
 </template>
 
@@ -21,4 +21,3 @@
         color: #fff;
     }
 </style>
-

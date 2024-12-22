@@ -65,7 +65,7 @@ export default class Card {
     constructor(canvas: Canvas, layoutOptions: LayoutOptions, pos: PosObject, imageData: ImageData) {
         const boxWidth = canvas.width / layoutOptions.width,
             boxHeight = canvas.height / layoutOptions.height,
-            boxMargin = 20;
+            boxMargin = Math.max(canvas.width, canvas.height) / 100;
 
         this.canvas = canvas;
         this.layoutOptions = layoutOptions;
@@ -174,7 +174,7 @@ export default class Card {
 
         const boxWidth = this.canvas.width / this.layoutOptions.width,
             boxHeight = this.canvas.height / this.layoutOptions.height,
-            boxMargin = 20,
+            boxMargin = Math.max(this.canvas.width, this.canvas.height) / 100,
             cardX = boxMargin / 2 + boxWidth * this.pos.column,
             cardY = boxMargin / 2 + boxHeight * this.pos.row,
             cardWidth = boxWidth - boxMargin,
