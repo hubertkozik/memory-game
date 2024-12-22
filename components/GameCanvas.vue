@@ -5,7 +5,7 @@
     import Card from '~/lib/Card';
     import Canvas from '~/lib/Canvas';
 
-    const config = useRuntimeConfig();
+    const config = import.meta.client ? useRuntimeConfig() : {};
 
     function pad(num, size) {
         num = num.toString();
@@ -76,7 +76,10 @@
                 images.push({...data[nums[i]]}, {...data[nums[i]]});
             }
 
-            images.sort(() => Math.random() - 0.5);
+            const beforeSort = [...images];
+            while (JSON.stringify(beforeSort) !== JSON.stringify(images)) {
+                images.sort(() => Math.random() - 0.5);
+            }
 
             for (let i = 0; i < layoutWidth * layoutHeight; i++) {
                 const column = i % layoutWidth,
@@ -114,8 +117,8 @@
                 if (!this.time.seconds) {
                     this.time = useStopwatch();
                 }
-
-                const clickedCard = cards.find(card => card.range.x1 <= mouseX && card.range.x2 >= mouseX && card.range.y1 <= mouseY && card.range.y2 >= mouseY);
+                
+                const clickedCard = cards.find(card => card.range.x1 / window.devicePixelRatio <= mouseX && card.range.x2 / window.devicePixelRatio >= mouseX && card.range.y1 / window.devicePixelRatio <= mouseY && card.range.y2 / window.devicePixelRatio >= mouseY);
 
                 if (!clickedCard || this.activeCards.indexOf(clickedCard) !== -1 || clickedCard.active) {
                     return;
@@ -174,7 +177,7 @@
                     return;
                 }
 
-                const hoveredCard = cards.find(card => card.range.x1 <= mouseX && card.range.x2 >= mouseX && card.range.y1 <= mouseY && card.range.y2 >= mouseY);
+                const hoveredCard = cards.find(card => card.range.x1 / window.devicePixelRatio <= mouseX && card.range.x2 / window.devicePixelRatio >= mouseX && card.range.y1 / window.devicePixelRatio <= mouseY && card.range.y2 / window.devicePixelRatio >= mouseY);
 
                 if (hoveredCard?.isAnimating) {
                     return;
@@ -188,8 +191,8 @@
                     return;
                 }
 
-                const angleX = ((mouseY / (hoveredCard.y + hoveredCard.height)) - 0.5) * 0.05; // Tilt based on Y
-                const angleY = ((mouseX / (hoveredCard.x + hoveredCard.width)) - 0.5) * 0.05; // Tilt based on X
+                const angleX = ((mouseY / (hoveredCard.y + hoveredCard.height) / window.devicePixelRatio) - 0.5) * 0.05; // Tilt based on Y
+                const angleY = ((mouseX / (hoveredCard.x + hoveredCard.width) / window.devicePixelRatio) - 0.5) * 0.05; // Tilt based on X
 
                 hoveredCard.setAngle(angleX, angleY);
             }
@@ -227,6 +230,11 @@
         display: grid;
         place-items: center;
         overflow-y: hidden;
+    }
+
+    .game-container > canvas {
+        width: 100%;
+        height: 100%;
     }
 
     div.winPopupContainer {
