@@ -12,6 +12,7 @@
   "dependencies": {
     "@nuxt/fonts": "^0.10.3",
     "gsap": "^3.12.5",
+    "lodash.isequal": "^4.5.0",
     "normalize.css": "^8.0.1",
     "nuxt": "^3.14.1592",
     "vue": "latest",

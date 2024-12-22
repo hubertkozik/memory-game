@@ -9,27 +9,23 @@
                 }, {
                     width: 4,
                     height: 4,
-                    name: 'Spokojny'
+                    name: 'Łatwy'
                 }, {
                     width: 4,
                     height: 5,
-                    name: 'Łatwy'
+                    name: 'Normalny'
                 }, {
                     width: 5,
                     height: 6,
-                    name: 'Normalny'
+                    name: 'Wyzywający'
                 }, {
                     width: 6,
                     height: 6,
-                    name: 'Wyzywający'
+                    name: 'Trudny'
                 }, {
                     width: 8,
                     height: 8,
-                    name: 'Trudny'
-                }, {
-                    width: 10,
-                    height: 10,
-                    name: 'Bardzo trudny'
+                    name: 'Bardzo Trudny'
                 }]
             };
         }

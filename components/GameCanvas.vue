@@ -1,4 +1,5 @@
 <script>
+    import isEqual from 'lodash.isequal';
     import data from '~/assets/processed_data.json';
     import { useStopwatch } from 'vue-timer-hook';
 
@@ -77,7 +78,7 @@
             }
 
             const beforeSort = [...images];
-            while (JSON.stringify(beforeSort) !== JSON.stringify(images)) {
+            while (isEqual(beforeSort, images)) {
                 images.sort(() => Math.random() - 0.5);
             }
 
