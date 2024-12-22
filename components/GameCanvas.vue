@@ -14,6 +14,13 @@
         return num;
     }
 
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i >= 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
+
     export default {
         provide() {
             return {
@@ -77,10 +84,7 @@
                 images.push({...data[nums[i]]}, {...data[nums[i]]});
             }
 
-            const beforeSort = [...images];
-            while (isEqual(beforeSort, images)) {
-                images.sort(() => Math.random() - 0.5);
-            }
+            shuffleArray(images);
 
             for (let i = 0; i < layoutWidth * layoutHeight; i++) {
                 const column = i % layoutWidth,
