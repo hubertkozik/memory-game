@@ -1,6 +1,10 @@
 # Memory Game
 
-The Memory Game built in Nuxt3 with usage of Canvas.
+The Memory Game - test your memory sklils!
+
+### Built with
+
+Nuxt3 | Vue.js | Canvas | GSAP
 
 ## Setup
 
@@ -12,12 +16,6 @@ npm install
 
 # pnpm
 pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
 ## Development Server
@@ -30,12 +28,6 @@ npm run dev
 
 # pnpm
 pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
 ## Production
@@ -48,12 +40,6 @@ npm run build
 
 # pnpm
 pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
 ```
 
 Locally preview production build:
@@ -64,11 +50,4 @@ npm run preview
 
 # pnpm
 pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
 ```
-
